@@ -1,0 +1,327 @@
+// variabili bootstrap
+$primary: #e2571c;
+$secondary: #2b5468;
+$success: #3f6b3b;
+$warning: #c9821a;
+$danger: #a83a2c;
+$info: #2b5468;
+$dark: #1c1a17;
+$light: #f8f6f1;
+
+$body-bg: #edeae2;
+$body-color: #1c1a17;
+
+$font-family-base: '"IBM Plex Sans", system-ui, sans-serif';
+$font-family-monospace: '"IBM Plex Mono", ui-monospace, monospace';
+$headings-font-family: '"Archivo", sans-serif';
+$headings-font-weight: 800;
+$headings-color: #1c1a17;
+$link-color: $secondary;
+$link-hover-color: $primary;
+$link-decoration: none;
+
+$border-radius: 3px;
+$border-radius-sm: 2px;
+$border-radius-lg: 3px;
+$border-color: #dad4c6;
+
+$grid-gutter-width: 2rem;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1280px,
+);
+
+$btn-border-radius: 2px;
+$btn-font-weight: 600;
+$input-border-radius: 2px;
+$input-btn-focus-box-shadow: 0 0 0 3px rgba(226, 87, 28, 0.25);
+
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// variabili mie
+:root {
+  --concrete: #edeae2;
+  --paper: #f8f6f1;
+  --charcoal: #1c1a17;
+  --charcoal-soft: #2b2822;
+  --steel: #6b6659;
+  --steel-light: #9a9486;
+  --line: #dad4c6;
+  --line-dark: #45413a;
+
+  --orange: #e2571c;
+  --orange-deep: #b8420f;
+  --blueprint: #2b5468;
+  --blueprint-light: #6c93a3;
+  --green: #3f6b3b;
+  --rust: #a83a2c;
+  --amber: #c9821a;
+
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --container: 1280px;
+}
+
+// stili base
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-optical-sizing: auto;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+.paragraph {
+  font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem);
+  color: var(--steel);
+  line-height: 1.55;
+  max-width: 46ch;
+}
+
+a {
+  transition: color 0.15s ease;
+}
+
+// layout
+.oc-container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 2vw, 2.5rem);
+}
+
+.section {
+  padding-block: clamp(3.5rem, 3rem + 3vw, 7rem);
+  position: relative;
+}
+
+.section--tight {
+  padding-block: clamp(2.5rem, 2rem + 2vw, 4.5rem);
+}
+
+.section--dark {
+  background: var(--charcoal);
+  color: var(--concrete);
+}
+
+.section--dark .text-steel {
+  color: var(--steel-light) !important;
+}
+
+.section--paper {
+  background: var(--paper);
+}
+
+.section--rule-top {
+  border-top: 1px solid var(--line);
+}
+
+.section--dark.section--rule-top {
+  border-top: 1px solid var(--line-dark);
+}
+
+.text-steel {
+  color: var(--steel) !important;
+}
+
+.text-orange {
+  color: var(--orange) !important;
+}
+
+.text-blueprint {
+  color: var(--blueprint) !important;
+}
+
+.smalltitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-bottom: 0.9rem;
+}
+
+
+.section--dark .smalltitle,
+.smalltitle--light {
+  color: #f0a077;
+}
+
+
+// bottoni
+.btn {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-lg {
+  padding: 0.95rem 2rem;
+  font-size: 0.92rem;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-color: #fff;
+}
+
+.btn-outline-light {
+  --bs-btn-border-color: var(--line-dark);
+}
+
+// card
+.oc-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 1.75rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.oc-card:hover {
+  border-color: var(--steel-light);
+}
+
+.service-card {
+  position: relative;
+  isolation: isolate;
+  min-height: 420px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+    to top,
+    rgba(28, 26, 23, 0.95) 0%,
+    rgba(28, 26, 23, 0.82) 32%,
+    rgba(28, 26, 23, 0.35) 68%,
+    rgba(28, 26, 23, 0.15) 100%
+  );
+  transition: background-color 0.4s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.02);
+}
+
+.service-card .smalltitle {
+  color: #f0a077;
+}
+
+.service-card h3 {
+  color: var(--paper);
+}
+
+.service-card__desc {
+  color: var(--steel-light);
+  margin-bottom: 1.25rem;
+}
+
+.service-card li {
+  color: var(--concrete);
+}
+
+// badge stato
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3em 0.75em;
+  border: 1px solid currentColor;
+  color: var(--steel);
+}
+
+.status-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  flex: none;
+}
+
+.status-badge--positive {
+  color: var(--green);
+}
+
+.status-badge--pending {
+  color: var(--blueprint);
+}
+
+.status-badge--attention {
+  color: var(--orange-deep);
+}
+
+.status-badge--negative {
+  color: var(--rust);
+}
+
+.status-badge--neutral {
+  color: var(--steel);
+}
+
+@import './layout.scss';
+@import './hero.scss';
+@import './dashboard.scss';
+@import './forms.scss';
+@import './backoffice.scss';
