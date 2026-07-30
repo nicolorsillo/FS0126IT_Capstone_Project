@@ -1,10 +1,16 @@
-import "./styles/main.css"
+import { BrowserRouter, Routes, Route } from "react-router"
+import PublicLayout from "./components/PublicLayout"
+import Home from "./pages/Home"
 
 const App = () => {
   return (
-    <div className="app-placeholder">
-      <p>Orsillo Costruzioni — sito in costruzione</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
