@@ -1,0 +1,119 @@
+.auth-shell {
+  min-height: calc(100svh - 68px);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: clamp(2rem, 1.6rem + 1.6vw, 3rem);
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.form-control,
+.form-select {
+  background: var(--concrete);
+  border-color: var(--line);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: var(--paper);
+  border-color: var(--charcoal);
+}
+
+.form-text-error {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--rust);
+  margin-top: 0.35rem;
+}
+
+.form-banner-error {
+  border: 1px solid var(--rust);
+  color: var(--rust);
+  background: rgba(168, 58, 44, 0.06);
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-banner-success {
+  border: 1px solid var(--green);
+  color: var(--green);
+  background: rgba(63, 107, 59, 0.07);
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-toggle button {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.85rem 0.5rem;
+  border: 1px solid var(--line);
+  background: var(--concrete);
+  color: var(--steel);
+}
+
+.role-toggle button.active {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--concrete);
+}
+
+.file-drop {
+  border: 1px dashed var(--steel-light);
+  padding: 1.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--steel);
+  cursor: pointer;
+  background: var(--concrete);
+}
+
+.file-drop:hover {
+  border-color: var(--orange);
+}
+
+.file-drop input {
+  display: none;
+}
+
+.spinner-mark {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=forms.css.map */
