@@ -8,6 +8,8 @@ import Home from "./pages/Home"
 import ChiSiamo from "./pages/ChiSiamo"
 import Servizi from "./pages/Servizi"
 import Contatti from "./pages/Contatti"
+import JobOffers from "./pages/lavora/JobOffers"
+import JobOfferDetail from "./pages/lavora/JobOfferDetail"
 import Login from "./pages/auth/Login"
 import Registrati from "./pages/auth/Registrati"
 import NotFound from "./pages/NotFound"
@@ -27,6 +29,11 @@ const AppRoutes = () => {
           <Route path="/chi-siamo" element={<ChiSiamo />} />
           <Route path="/servizi" element={<Servizi />} />
           <Route path="/contatti" element={<Contatti />} />
+          <Route path="/lavora-con-noi" element={<JobOffers />} />
+          <Route
+            path="/lavora-con-noi/:jobOfferId"
+            element={<JobOfferDetail />}
+          />
           <Route path="/accedi" element={<Login />} />
           <Route path="/registrati" element={<Registrati />} />
           <Route path="*" element={<NotFound />} />
