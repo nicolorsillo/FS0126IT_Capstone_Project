@@ -4,6 +4,7 @@ import { Provider, useDispatch } from "react-redux"
 import store from "./redux/store"
 import { bootstrapAuthAction } from "./redux/actions/auth"
 import ProtectedRoute from "./components/ProtectedRoute"
+import RoleRoute from "./components/RoleRoute"
 import PublicLayout from "./components/PublicLayout"
 
 import Home from "./pages/Home"
@@ -22,6 +23,17 @@ import LeMieCandidature from "./pages/area-riservata/candidato/LeMieCandidature"
 import ColloquiDisponibili from "./pages/area-riservata/candidato/ColloquiDisponibili"
 import Profilo from "./pages/area-riservata/Profilo"
 import NotFound from "./pages/NotFound"
+
+import BackofficeLayout from "./pages/backoffice/BackofficeLayout"
+import BackofficeIndex from "./pages/backoffice/BackofficeIndex"
+import OfferteLavoro from "./pages/backoffice/OfferteLavoro"
+import OffertaCandidature from "./pages/backoffice/OffertaCandidature"
+import OffertaForm from "./pages/backoffice/OffertaForm"
+import Candidature from "./pages/backoffice/Candidature"
+import Utenti from "./pages/backoffice/Utenti"
+import Ruoli from "./pages/backoffice/Ruoli"
+
+const STAFF_ROLES = ["ADMIN", "GEOMETRA", "HR"]
 
 const AppRoutes = () => {
   const dispatch = useDispatch()
@@ -63,6 +75,73 @@ const AppRoutes = () => {
           </Route>
 
           <Route path="*" element={<NotFound />} />
+        </Route>
+
+        <Route
+          path="/backoffice"
+          element={
+            <RoleRoute roles={STAFF_ROLES}>
+              <BackofficeLayout />
+            </RoleRoute>
+          }
+        >
+          <Route index element={<BackofficeIndex />} />
+          <Route
+            path="offerte-lavoro"
+            element={
+              <RoleRoute roles={["HR", "ADMIN"]}>
+                <OfferteLavoro />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="offerte-lavoro/nuova"
+            element={
+              <RoleRoute roles={["HR", "ADMIN"]}>
+                <OffertaForm />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="offerte-lavoro/:jobOfferId"
+            element={
+              <RoleRoute roles={["HR", "ADMIN"]}>
+                <OffertaForm />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="offerte-lavoro/:jobOfferId/candidature"
+            element={
+              <RoleRoute roles={["HR", "ADMIN"]}>
+                <OffertaCandidature />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="candidature"
+            element={
+              <RoleRoute roles={["HR", "ADMIN"]}>
+                <Candidature />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="utenti"
+            element={
+              <RoleRoute roles={["ADMIN"]}>
+                <Utenti />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="ruoli"
+            element={
+              <RoleRoute roles={["ADMIN"]}>
+                <Ruoli />
+              </RoleRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
