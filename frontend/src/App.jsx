@@ -26,10 +26,16 @@ import NotFound from "./pages/NotFound"
 
 import BackofficeLayout from "./pages/backoffice/BackofficeLayout"
 import BackofficeIndex from "./pages/backoffice/BackofficeIndex"
+import Lavori from "./pages/backoffice/Lavori"
+import LavoroDettaglio from "./pages/backoffice/LavoroDettaglio"
+import Preventivi from "./pages/backoffice/Preventivi"
+import Fatture from "./pages/backoffice/Fatture"
+import Elaborati from "./pages/backoffice/Elaborati"
 import OfferteLavoro from "./pages/backoffice/OfferteLavoro"
 import OffertaCandidature from "./pages/backoffice/OffertaCandidature"
 import OffertaForm from "./pages/backoffice/OffertaForm"
 import Candidature from "./pages/backoffice/Candidature"
+import SlotColloqui from "./pages/backoffice/SlotColloqui"
 import Utenti from "./pages/backoffice/Utenti"
 import Ruoli from "./pages/backoffice/Ruoli"
 
@@ -87,6 +93,46 @@ const AppRoutes = () => {
         >
           <Route index element={<BackofficeIndex />} />
           <Route
+            path="lavori"
+            element={
+              <RoleRoute roles={["ADMIN", "GEOMETRA"]}>
+                <Lavori />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="lavori/:workId"
+            element={
+              <RoleRoute roles={["ADMIN", "GEOMETRA"]}>
+                <LavoroDettaglio />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="preventivi"
+            element={
+              <RoleRoute roles={["ADMIN", "GEOMETRA"]}>
+                <Preventivi />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="fatture"
+            element={
+              <RoleRoute roles={["ADMIN", "GEOMETRA"]}>
+                <Fatture />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="elaborati"
+            element={
+              <RoleRoute roles={["ADMIN", "GEOMETRA"]}>
+                <Elaborati />
+              </RoleRoute>
+            }
+          />
+          <Route
             path="offerte-lavoro"
             element={
               <RoleRoute roles={["HR", "ADMIN"]}>
@@ -123,6 +169,14 @@ const AppRoutes = () => {
             element={
               <RoleRoute roles={["HR", "ADMIN"]}>
                 <Candidature />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="slot-colloqui"
+            element={
+              <RoleRoute roles={["HR", "ADMIN"]}>
+                <SlotColloqui />
               </RoleRoute>
             }
           />
