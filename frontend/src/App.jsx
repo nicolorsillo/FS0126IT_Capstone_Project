@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { BrowserRouter, Routes, Route } from "react-router"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router"
 import { Provider, useDispatch } from "react-redux"
 import store from "./redux/store"
 import { bootstrapAuthAction } from "./redux/actions/auth"
@@ -196,6 +196,7 @@ const AppRoutes = () => {
               </RoleRoute>
             }
           />
+          <Route path="*" element={<Navigate to="/backoffice" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>
